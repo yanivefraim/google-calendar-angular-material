@@ -6,7 +6,9 @@
         .controller('Events', Events);
 
     /* @ngInject */
-    function Events()
+    function Events(){
+    	
+    }
 
 
 })();
