@@ -11,11 +11,11 @@ gulp.task('default', function() {
 
 // JS concat, strip debugging and minify
 gulp.task('scripts', function() {
-    gulp.src(['./app/**/*.js'])
+    gulp.src(['./src/client/app/**/*.js'])
     .pipe(ngAnnotate())
     .pipe(concat('script.js'))
 
     //.pipe(stripDebug())
     .pipe(uglify())
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./src/client/dist/'));
 });
