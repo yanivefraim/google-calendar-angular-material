@@ -3,28 +3,17 @@
 
     angular
         .module('calendar.events')
-        .run(appRun);
+        .config(runConfig);
 
     /* @ngInject */
-    function appRun(routehelper) {
-        routehelper.configureRoutes(getRoutes());
+    function runConfig($routeProvider) {
+        $routeProvider.when('/events', {
+            templateUrl: 'events.tpl.html',
+            controller: 'EventsCtrl',
+            controllerAs: 'vm'
+        });
+
+        $routeProvider.otherwise( { redirectTo: '/events' } );            
     }
 
-    function getRoutes() {
-        return [
-            {
-                url: '/events',
-                config: {
-                    templateUrl: 'app/events/events.tpl.html',
-                    controller: 'Avengers',
-                    controllerAs: 'vm',
-                    title: 'events',
-                    // settings: {
-                    //     nav: 2,
-                    //     content: '<i class="fa fa-lock"></i> Avengers'
-                    // }
-                }
-            }
-        ];
-    }
 })();
